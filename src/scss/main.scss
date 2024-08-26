@@ -1,0 +1,41 @@
+@use "app";
+@use "CalculatorCard";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-off-white: hsl(0, 0%, 94%);
+  --clr-light-grey: hsl(0, 0%, 86%);
+  --clr-smokey-grey: hsl(0, 1%, 44%);
+  --clr-off-black: hsl(0, 0%, 8%);
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--clr-off-white);
+}
