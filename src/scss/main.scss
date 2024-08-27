@@ -1,5 +1,7 @@
 @use "app";
 @use "CalculatorCard";
+@use "input";
+@use "button";
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
 
@@ -9,6 +11,8 @@
   --clr-light-grey: hsl(0, 0%, 86%);
   --clr-smokey-grey: hsl(0, 1%, 44%);
   --clr-off-black: hsl(0, 0%, 8%);
+  --clr-purple: hsl(259, 100%, 65%);
+  --clr-red: hsl(0, 100%, 67%);
 }
 
 .poppins-bold {

@@ -1,5 +1,15 @@
 .calculator_card {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
+  background-color: var(--clr-white);
+  padding: 2rem;
+  border-radius: 1rem 1rem 3rem 1rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+
+  .dob_inputs {
+    display: flex;
+    justify-content: center;
+  }
+
+  .border {
+    border-bottom: 1px solid var(--clr-light-grey);
+  }
 }
