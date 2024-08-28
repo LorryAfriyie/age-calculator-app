@@ -1,5 +1,13 @@
 button {
   display: flex;
-  background: none;
-  background-image: url("/images/icon-arrow.svg");
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--clr-purple);
+  margin-inline-start: auto;
+}
+
+button:hover {
+  background-color: var(--clr-off-black);
+  cursor: pointer;
 }
