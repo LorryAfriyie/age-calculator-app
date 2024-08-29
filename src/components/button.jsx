@@ -1,6 +1,6 @@
-function Button() {
+function Button({ type, name }) {
   return (
-    <button>
+    <button type={type} name={name} id={name} className={name}>
       <img src="/images/icon-arrow.svg" alt="icon.svg" />
     </button>
   );

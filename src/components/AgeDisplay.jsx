@@ -1,16 +1,16 @@
-function AgeDisplay() {
+function AgeDisplay({ year, month, day }) {
   return (
     <div className="age_display poppins-extrabold-italic">
       <div className="year">
-        <span>--</span> years
+        {year === "" ? <span>- -</span> : <span>{year}</span>} years
       </div>
 
       <div className="month">
-        <span>--</span> months
+        {month === "" ? <span>- -</span> : <span>{month}</span>} months
       </div>
 
       <div className="day">
-        <span>--</span> days
+        {day === "" ? <span>- -</span> : <span>{day}</span>} days
       </div>
     </div>
   );
