@@ -4,13 +4,27 @@
   border-radius: 1rem 1rem 3rem 1rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   position: relative;
+
   .dob_inputs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
   }
 
   .border {
     border-bottom: 1px solid var(--clr-light-grey);
+  }
+
+  .submit_container {
+    display: flex;
+    align-items: center;
+  }
+
+  .submit_container::before {
+    content: "";
+    width: 30rem;
+    height: 1px;
+    display: flex;
+    background-color: var(--clr-light-grey);
   }
 }

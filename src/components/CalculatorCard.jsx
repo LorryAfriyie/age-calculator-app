@@ -12,7 +12,7 @@ function CalculatorCard() {
   function calculateAge(e) {
     e.preventDefault();
 
-    setData({
+    setResult({
       resultDay:
         _day > data.day.trim()
           ? _day - data.day.trim()
@@ -32,6 +32,9 @@ function CalculatorCard() {
     year: "",
     month: "",
     day: "",
+  });
+
+  const [result, setResult] = useState({
     resultYear: "",
     resultMonth: "",
     resultDay: "",
@@ -58,6 +61,7 @@ function CalculatorCard() {
             value={data.day}
             onChange={handleInputChange}
             placeHolder={"DD"}
+            ref={dayInput}
           />
 
           <Input
@@ -67,6 +71,7 @@ function CalculatorCard() {
             value={data.month}
             onChange={handleInputChange}
             placeHolder={"MM"}
+            ref={monthInput}
           />
 
           <Input
@@ -76,18 +81,21 @@ function CalculatorCard() {
             value={data.year}
             onChange={handleInputChange}
             placeHolder={"YYYY"}
+            ref={yearInput}
           />
         </div>
 
-        <Button type={"submit"} name={"submit"} />
+        <div className="submit_container">
+          <Button type={"submit"} name={"submit"} />
+        </div>
       </form>
 
       {/*  <div className="border" /> */}
 
       <AgeDisplay
-        year={data.resultYear}
-        month={data.resultMonth}
-        day={data.resultDay}
+        year={result.resultYear}
+        month={result.resultMonth}
+        day={result.resultDay}
       />
     </div>
   );

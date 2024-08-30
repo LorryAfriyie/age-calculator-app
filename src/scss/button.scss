@@ -5,6 +5,11 @@ button {
   border-radius: 50%;
   background-color: var(--clr-purple);
   margin-inline-start: auto;
+  padding: 1.25rem;
+
+  img {
+    width: 40px;
+  }
 }
 
 button:hover {
