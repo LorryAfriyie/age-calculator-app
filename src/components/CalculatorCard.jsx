@@ -43,8 +43,8 @@ function CalculatorCard() {
     e.preventDefault();
 
     if (
-      data.day.trim() != "" ||
-      data.month.trim() != "" ||
+      data.day.trim() != "" &&
+      data.month.trim() != "" &&
       data.year.trim() != ""
     )
       setResult({
