@@ -63,7 +63,7 @@ function CalculatorCard() {
       });
     else
       inputs.map((x) => {
-        checkInput(x.input, x.label, x.message);
+        checkInput(x.input, x.message, x.label);
       });
   }
 
@@ -85,8 +85,8 @@ function CalculatorCard() {
             onChange={handleInputChange}
             placeHolder={"DD"}
             ref={dayInput}
+            ref2={dayErrMsg}
           />
-          <small className="err-message" ref={yearErrMsg} />
 
           <Input
             type={"text"}
@@ -96,8 +96,8 @@ function CalculatorCard() {
             onChange={handleInputChange}
             placeHolder={"MM"}
             ref={monthInput}
+            ref2={monthErrMsg}
           />
-          <small className="err-message" ref={monthErrMsg} />
 
           <Input
             type={"text"}
@@ -107,8 +107,8 @@ function CalculatorCard() {
             onChange={handleInputChange}
             placeHolder={"YYYY"}
             ref={yearInput}
+            ref2={yearErrMsg}
           />
-          <small className="err-message" ref={dayErrMsg} />
         </div>
 
         <div className="submit_container">

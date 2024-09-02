@@ -2,7 +2,7 @@
 import { forwardRef } from "react";
 
 const Input = forwardRef(
-  ({ type, name, value, onChange, labelName, placeHolder }, ref) => {
+  ({ type, name, value, onChange, labelName, placeHolder }, ref, ref2) => {
     return (
       <div className="form-control">
         <label htmlFor={name}>{labelName}</label>
@@ -16,6 +16,7 @@ const Input = forwardRef(
           placeholder={placeHolder}
           ref={ref}
         />
+        <small className="err-message" ref={ref2}></small>
       </div>
     );
   },
