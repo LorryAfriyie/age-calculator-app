@@ -1,8 +1,9 @@
 /* eslint-disable react/display-name */
 import { forwardRef } from "react";
+import ErrorLabel from "./ErrorLabel";
 
 const Input = forwardRef(
-  ({ type, name, value, onChange, labelName, placeHolder }, ref, ref2) => {
+  ({ type, name, value, onChange, labelName, placeHolder, labelRef }, ref) => {
     return (
       <div className="form-control">
         <label htmlFor={name}>{labelName}</label>
@@ -16,7 +17,7 @@ const Input = forwardRef(
           placeholder={placeHolder}
           ref={ref}
         />
-        <small className="err-message" ref={ref2}></small>
+        <ErrorLabel ref={labelRef} />
       </div>
     );
   },

@@ -1,7 +1,4 @@
 .form-control {
-  position: relative;
-  margin-bottom: 15px;
-
   label {
     display: block;
     margin-bottom: 5px;
@@ -12,15 +9,16 @@
   }
 
   small {
+    margin-top: 0.5rem;
     display: block;
   }
 
   input {
-    width: 120px;
-    height: 50px;
+    width: 125px;
+    height: 55px;
     padding: 1.2rem;
     font-size: 1.25rem;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;

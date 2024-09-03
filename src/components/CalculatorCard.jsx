@@ -1,8 +1,9 @@
 import Input from "./input";
 import Button from "./button";
 import AgeDisplay from "./AgeDisplay";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { checkInput } from "./validation";
+import { removeErrorBorder } from "./SetBorder";
 
 function CalculatorCard() {
   const now = new Date();
@@ -63,7 +64,7 @@ function CalculatorCard() {
       });
     else
       inputs.map((x) => {
-        checkInput(x.input, x.message, x.label);
+        checkInput(x.input, x.label, x.message);
       });
   }
 
@@ -72,6 +73,12 @@ function CalculatorCard() {
 
     setData((data) => ({ ...data, [name]: value }));
   }
+
+  useEffect(() => {
+    inputs.map((x) => {
+      removeErrorBorder(x.input, x.label);
+    });
+  });
 
   return (
     <div className="calculator_card">
@@ -85,7 +92,7 @@ function CalculatorCard() {
             onChange={handleInputChange}
             placeHolder={"DD"}
             ref={dayInput}
-            ref2={dayErrMsg}
+            labelRef={dayErrMsg}
           />
 
           <Input
@@ -96,7 +103,7 @@ function CalculatorCard() {
             onChange={handleInputChange}
             placeHolder={"MM"}
             ref={monthInput}
-            ref2={monthErrMsg}
+            labelRef={monthErrMsg}
           />
 
           <Input
@@ -107,16 +114,15 @@ function CalculatorCard() {
             onChange={handleInputChange}
             placeHolder={"YYYY"}
             ref={yearInput}
-            ref2={yearErrMsg}
+            labelRef={yearErrMsg}
           />
         </div>
 
         <div className="submit_container">
+          <div className="border"></div>
           <Button type={"submit"} name={"submit"} />
         </div>
       </form>
-
-      {/*  <div className="border" /> */}
 
       <AgeDisplay
         year={result.resultYear}
