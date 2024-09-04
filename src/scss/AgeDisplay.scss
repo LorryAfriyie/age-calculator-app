@@ -1,11 +1,17 @@
 .age_display {
+  width: max-content;
   .year,
   .month,
   .day {
     font-size: 5rem;
+    line-height: 1.2;
+
+    @media (max-width: 65em) {
+      font-size: 4rem;
+    }
   }
 
   span {
-    color: var(--clr-purple)
+    color: var(--clr-purple);
   }
 }

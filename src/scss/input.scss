@@ -24,6 +24,10 @@
     font-style: normal;
     border: 1px solid var(--clr-light-grey);
     outline: none;
+
+    @media (max-width: 65em) {
+      width: 100px;
+    }
   }
 
   input:focus {
