@@ -2,6 +2,7 @@
 import { forwardRef } from "react";
 import ErrorLabel from "./ErrorLabel";
 
+// Input component with a useRef parameter  
 const Input = forwardRef(
   ({ type, name, value, onChange, labelName, placeHolder, labelRef }, ref) => {
     return (

@@ -2,6 +2,7 @@ import { setErrorBorder } from "./SetBorder";
 
 const inputNames = ["year", "month", "day"];
 
+// Function to validate the inputs
 function checkInput(input, label, message) {
   // Check if the name of the input is equal to "year"
   if (input.current.name === inputNames[0]) {

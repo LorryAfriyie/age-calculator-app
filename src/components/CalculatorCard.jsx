@@ -6,23 +6,27 @@ import { checkInput } from "./validation";
 import { removeErrorBorder } from "./SetBorder";
 
 function CalculatorCard() {
+  // Date variables
   const now = new Date();
   const _year = now.getFullYear();
   const _month = now.getMonth();
   const _day = now.getDay();
 
+  // State variables to hold data from input
   const [data, setData] = useState({
     year: "",
     month: "",
     day: "",
   });
 
+  // State variable to hold age calculation
   const [result, setResult] = useState({
     resultYear: "",
     resultMonth: "",
     resultDay: "",
   });
 
+  // useRef variables to be able to access DOM elements
   const yearInput = useRef(null),
     monthInput = useRef(null),
     dayInput = useRef(null),
@@ -30,6 +34,7 @@ function CalculatorCard() {
     monthErrMsg = useRef(null),
     dayErrMsg = useRef(null);
 
+  // Array of objects to use for validation purposes
   const inputs = [
     { input: yearInput, message: "This field is required", label: yearErrMsg },
     {
@@ -40,6 +45,7 @@ function CalculatorCard() {
     { input: dayInput, message: "This field is required", label: dayErrMsg },
   ];
 
+  // Function to validate or calculate when the conditions are met after submission
   function calculateAge(e) {
     e.preventDefault();
 
@@ -68,6 +74,7 @@ function CalculatorCard() {
       });
   }
 
+  // Handle onChange function for input controls
   function handleInputChange(e) {
     const { name, value } = e.target;
 
@@ -75,6 +82,7 @@ function CalculatorCard() {
   }
 
   useEffect(() => {
+    // Remove validation error on flagged inputs when corrected
     inputs.map((x) => {
       removeErrorBorder(x.input, x.label);
     });
@@ -84,6 +92,7 @@ function CalculatorCard() {
     <div className="calculator_card">
       <form onSubmit={calculateAge} noValidate>
         <div className="dob_inputs poppins-bold">
+          {/* Day input */}
           <Input
             type={"text"}
             labelName={"Day"}
@@ -95,6 +104,7 @@ function CalculatorCard() {
             labelRef={dayErrMsg}
           />
 
+          {/* Month input */}
           <Input
             type={"text"}
             labelName={"Month"}
@@ -106,6 +116,7 @@ function CalculatorCard() {
             labelRef={monthErrMsg}
           />
 
+          {/* Year input  */}
           <Input
             type={"text"}
             labelName={"Year"}
@@ -118,12 +129,14 @@ function CalculatorCard() {
           />
         </div>
 
+        {/* Submit button */}
         <div className="submit_container">
           <div className="border"></div>
           <Button type={"submit"} name={"submit"} />
         </div>
       </form>
 
+      {/* Display final age calculation component */}
       <AgeDisplay
         year={result.resultYear}
         month={result.resultMonth}

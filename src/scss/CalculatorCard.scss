@@ -6,8 +6,9 @@
   position: relative;
   width: max-content;
 
-  @media (max-width: 60em) {
-    padding: 1rem 1rem 1rem 1rem;
+  @media (max-width: 45em) {
+    padding: 3rem 2rem 3rem 2rem;
+    border-radius: 2rem 2rem 8rem 2rem;
   }
 
   .dob_inputs {
@@ -21,28 +22,24 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: 45em) {
+      margin: 1.5rem 0 1.5rem 0;
+    }
+
     .border {
       width: 30rem;
       height: 1px;
       background-color: var(--clr-light-grey);
 
-      @media (max-width: 60em) {
+      @media (max-width: 45em) {
         width: 21.5rem;
       }
     }
 
     button {
-      @media (max-width: 60em) {
+      @media (max-width: 45em) {
         margin-left: -13rem;
       }
     }
   }
-
-  /* .submit_container::before {
-    content: "";
-    width: 30rem;
-    height: 1px;
-    display: flex;
-    background-color: var(--clr-light-grey);
-  } */
 }

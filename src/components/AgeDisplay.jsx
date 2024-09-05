@@ -1,3 +1,4 @@
+// Component to display the final age calculation in year, month, and day
 function AgeDisplay({ year, month, day }) {
   return (
     <div className="age_display poppins-extrabold-italic">
