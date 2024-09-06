@@ -1,16 +1,18 @@
 // Function to add validation error styling
-function setErrorBorder(input, label, message) {
+function setErrorBorder(input, errLabel, message, label) {
   input.className = "form-control error";
-  label.style.color = "hsl(0, 100%, 67%)";
-  label.innerText = message;
+  errLabel.style.color = "var(--clr-red)";
+  errLabel.innerText = message;
+  label.style.color = "var(--clr-red)";
 }
 
 // Function to remove validation error styling
-function removeErrorBorder(input, label) {
+function removeErrorBorder(input, errLabel, label) {
   if (input.current.className === "form-control error") {
     if (input.current.value != "") {
       input.current.className = "form-control";
-      label.current.innerText = "";
+      errLabel.current.innerText = "";
+      label.current.style.color = "var(--clr-smokey-grey)";
     }
   }
 }

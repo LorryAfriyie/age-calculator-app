@@ -34,15 +34,30 @@ function CalculatorCard() {
     monthErrMsg = useRef(null),
     dayErrMsg = useRef(null);
 
+  const yearLabel = useRef(null),
+    monthLabel = useRef(null),
+    dayLabel = useRef(null);
+
   // Array of objects to use for validation purposes
   const inputs = [
-    { input: yearInput, message: "This field is required", label: yearErrMsg },
+    {
+      input: yearInput,
+      message: "This field is required",
+      errLabel: yearErrMsg,
+      label: yearLabel,
+    },
     {
       input: monthInput,
       message: "This field is required",
-      label: monthErrMsg,
+      errLabel: monthErrMsg,
+      label: monthLabel,
     },
-    { input: dayInput, message: "This field is required", label: dayErrMsg },
+    {
+      input: dayInput,
+      message: "This field is required",
+      errLabel: dayErrMsg,
+      label: dayLabel,
+    },
   ];
 
   // Function to validate or calculate when the conditions are met after submission
@@ -70,7 +85,7 @@ function CalculatorCard() {
       });
     else
       inputs.map((x) => {
-        checkInput(x.input, x.label, x.message);
+        checkInput(x.input, x.errLabel, x.message, x.label);
       });
   }
 
@@ -84,7 +99,7 @@ function CalculatorCard() {
   useEffect(() => {
     // Remove validation error on flagged inputs when corrected
     inputs.map((x) => {
-      removeErrorBorder(x.input, x.label);
+      removeErrorBorder(x.input, x.errLabel, x.label);
     });
   });
 
@@ -102,6 +117,7 @@ function CalculatorCard() {
             placeHolder={"DD"}
             ref={dayInput}
             labelRef={dayErrMsg}
+            label={dayLabel}
           />
 
           {/* Month input */}
@@ -114,6 +130,7 @@ function CalculatorCard() {
             placeHolder={"MM"}
             ref={monthInput}
             labelRef={monthErrMsg}
+            label={monthLabel}
           />
 
           {/* Year input  */}
@@ -126,6 +143,7 @@ function CalculatorCard() {
             placeHolder={"YYYY"}
             ref={yearInput}
             labelRef={yearErrMsg}
+            label={yearLabel}
           />
         </div>
 

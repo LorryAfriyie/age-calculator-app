@@ -1,13 +1,16 @@
 /* eslint-disable react/display-name */
 import { forwardRef } from "react";
-import ErrorLabel from "./ErrorLabel";
+import { ErrorLabel, Label } from "./Label";
 
-// Input component with a useRef parameter  
+// Input component with a useRef parameter
 const Input = forwardRef(
-  ({ type, name, value, onChange, labelName, placeHolder, labelRef }, ref) => {
+  (
+    { type, name, value, onChange, labelName, placeHolder, labelRef, label },
+    ref,
+  ) => {
     return (
       <div className="form-control">
-        <label htmlFor={name}>{labelName}</label>
+        <Label name={name} labelName={labelName} ref={label} />
         <input
           type={type}
           id={name}
