@@ -4,11 +4,12 @@
   border-radius: 1rem 1rem 9rem 1rem;
   box-shadow: 5px 5px 50px 0px rgba(0, 0, 0, 0.01);
   position: relative;
-  width: max-content;
+  max-width: max-content;
 
   @media (max-width: 45em) {
     padding: 3rem 2rem 3rem 2rem;
     border-radius: 2rem 2rem 8rem 2rem;
+    width: 10%;
   }
 
   .dob_inputs {
