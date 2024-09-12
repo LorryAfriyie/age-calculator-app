@@ -2,7 +2,7 @@ import Input from "./input";
 import Button from "./button";
 import AgeDisplay from "./AgeDisplay";
 import { useState, useRef, useEffect } from "react";
-import { checkInput } from "./validation";
+import { checkInput, checkErrors } from "./validation";
 import { removeErrorBorder } from "./SetBorder";
 
 function CalculatorCard() {
@@ -30,7 +30,9 @@ function CalculatorCard() {
   const yearInput = useRef(null),
     monthInput = useRef(null),
     dayInput = useRef(null),
-    yearErrMsg = useRef(null),
+    form = useRef(null);
+
+  const yearErrMsg = useRef(null),
     monthErrMsg = useRef(null),
     dayErrMsg = useRef(null);
 
@@ -63,27 +65,28 @@ function CalculatorCard() {
   // Function to validate or calculate when the conditions are met after submission
   function calculateAge(e) {
     e.preventDefault();
-
+    // TODO: Fix if statement to validate incorrect inputs
     if (
       data.day.trim() != "" &&
       data.month.trim() != "" &&
       data.year.trim() != ""
-    )
-      setResult({
-        resultDay:
-          _day > data.day.trim()
-            ? _day - data.day.trim()
-            : data.day.trim() - _day,
-        resultMonth:
-          _month > data.month.trim()
-            ? _month - data.month.trim()
-            : data.month.trim() - _month,
-        resultYear:
-          _year === data.year.trim()
-            ? _year - data.year.trim()
-            : _year - data.year.trim(),
-      });
-    else
+    ) {
+      if (!checkErrors(form))
+        setResult({
+          resultDay:
+            _day > data.day.trim()
+              ? _day - data.day.trim()
+              : data.day.trim() - _day,
+          resultMonth:
+            _month > data.month.trim()
+              ? _month - data.month.trim()
+              : data.month.trim() - _month,
+          resultYear:
+            _year === data.year.trim()
+              ? _year - data.year.trim()
+              : _year - data.year.trim(),
+        });
+    } else
       inputs.map((x) => {
         checkInput(x.input, x.errLabel, x.message, x.label);
       });
@@ -105,7 +108,7 @@ function CalculatorCard() {
 
   return (
     <div className="calculator_card">
-      <form onSubmit={calculateAge} noValidate>
+      <form onSubmit={calculateAge} ref={form} noValidate>
         <div className="dob_inputs poppins-bold">
           {/* Day input */}
           <Input

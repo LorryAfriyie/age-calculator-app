@@ -8,6 +8,16 @@ function checkInput(input, errLabel, message, label) {
   if (input.current.name === inputNames[0]) {
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
+
+    if (input.current.value.trim() > new Date().getFullYear()) {
+      setErrorBorder(
+        input.current,
+        errLabel.current,
+        "Must be in the past",
+        label.current,
+      );
+      console.log("flag year");
+    }
   }
 
   // Check if the name of the input is equal to "month"
@@ -15,13 +25,15 @@ function checkInput(input, errLabel, message, label) {
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
 
-    if (input.current.value.trim() > 12)
+    if (input.current.value.trim() > 12) {
       setErrorBorder(
         input.current,
         errLabel.current,
-        "Month cannot exceed 12.",
+        "Must be a valid month",
         label.current,
       );
+      console.log("flag month");
+    }
   }
 
   // Check if the name of the input is equal to "day"
@@ -29,14 +41,26 @@ function checkInput(input, errLabel, message, label) {
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
 
-    if (input.current.value.trim() > 31)
+    if (input.current.value.trim() > 31) {
       setErrorBorder(
         input.current,
         errLabel.current,
-        "Day cannot exceed 31.",
+        "Must be a valid date",
         label.current,
       );
+      console.log("flag date");
+    }
   }
 }
 
-export { checkInput };
+function checkErrors(form) {
+  let isValid = true;
+
+  form.current.querySelectorAll(".form-control").forEach((control) => {
+    if (control.classList.contains("error")) isValid = false;
+  });
+
+  return isValid;
+}
+
+export { checkInput, checkErrors };
