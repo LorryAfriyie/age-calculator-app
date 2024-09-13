@@ -66,29 +66,24 @@ function CalculatorCard() {
   function calculateAge(e) {
     e.preventDefault();
     // TODO: Fix if statement to validate incorrect inputs
-    if (
-      data.day.trim() != "" &&
-      data.month.trim() != "" &&
-      data.year.trim() != ""
-    ) {
-      if (!checkErrors(form))
-        setResult({
-          resultDay:
-            _day > data.day.trim()
-              ? _day - data.day.trim()
-              : data.day.trim() - _day,
-          resultMonth:
-            _month > data.month.trim()
-              ? _month - data.month.trim()
-              : data.month.trim() - _month,
-          resultYear:
-            _year === data.year.trim()
-              ? _year - data.year.trim()
-              : _year - data.year.trim(),
-        });
-    } else
-      inputs.map((x) => {
-        checkInput(x.input, x.errLabel, x.message, x.label);
+    inputs.map((x) => {
+      checkInput(x.input, x.errLabel, x.message, x.label);
+    });
+
+    if (checkErrors(form))
+      setResult({
+        resultDay:
+          _day > data.day.trim()
+            ? _day - data.day.trim()
+            : data.day.trim() - _day,
+        resultMonth:
+          _month > data.month.trim()
+            ? _month - data.month.trim()
+            : data.month.trim() - _month,
+        resultYear:
+          _year === data.year.trim()
+            ? _year - data.year.trim()
+            : _year - data.year.trim(),
       });
   }
 

@@ -47,4 +47,10 @@ body {
   padding: 0;
   min-height: 100vh;
   background-color: var(--clr-off-white);
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    color: hsl(228, 45%, 44%);
+  }
 }

@@ -4,6 +4,7 @@ const inputNames = ["year", "month", "day"];
 
 // Function to validate the inputs
 function checkInput(input, errLabel, message, label) {
+  console.log("Year: " + input.current.value);
   // Check if the name of the input is equal to "year"
   if (input.current.name === inputNames[0]) {
     if (input.current.value.trim() === "")
@@ -22,6 +23,7 @@ function checkInput(input, errLabel, message, label) {
 
   // Check if the name of the input is equal to "month"
   if (input.current.name === inputNames[1]) {
+    console.log("Month: " + input.current.value);
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
 
@@ -38,6 +40,7 @@ function checkInput(input, errLabel, message, label) {
 
   // Check if the name of the input is equal to "day"
   if (input.current.name === inputNames[2]) {
+    console.log("Day: " + input.current.value);
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
 
@@ -57,7 +60,9 @@ function checkErrors(form) {
   let isValid = true;
 
   form.current.querySelectorAll(".form-control").forEach((control) => {
-    if (control.classList.contains("error")) isValid = false;
+    if (control.classList.contains("error")) {
+      isValid = false;
+    }
   });
 
   return isValid;
