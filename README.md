@@ -57,7 +57,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Challenge solution URL](https://github.com/LorryAfriyie/age-calculator-app)
-- Live Site URL: [Challenge live site URL](https://your-live-site-url.com)
+- Live Site URL: [Challenge live site URL](https://lorryafriyie.github.io/age-calculator-app/)
 
 ## My process
 
