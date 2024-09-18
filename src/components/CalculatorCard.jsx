@@ -8,9 +8,6 @@ import { removeErrorBorder } from "./SetBorder";
 function CalculatorCard() {
   // Date variables
   const now = new Date();
-  const _year = now.getFullYear();
-  const _month = now.getMonth();
-  const _day = now.getDay();
 
   // State variables to hold data from input
   const [data, setData] = useState({
@@ -62,28 +59,75 @@ function CalculatorCard() {
     },
   ];
 
+  function dayCalculation() {
+    let value = 0;
+    const _day = now.getDate(),
+      day = parseInt(data.day.trim());
+
+    // console.log(`System day: ${_day} \n Input day: ${day}`);
+
+    if (_day > day) {
+      value = _day - day;
+      //console.log("first day break");
+    } else if (_day === day) {
+      value = _day - day;
+      //console.log("second day break");
+    } else if (day > _day) {
+      value = day - _day;
+      //console.log("third day break");
+    } else value = 0;
+
+    return value;
+  }
+
+  function monthCalculation() {
+    let value = 0;
+    const _month = parseInt(now.getMonth() + 1),
+      month = parseInt(data.month.trim());
+
+    //console.log(`System month: ${_month} \n Input month: ${month}`);
+
+    if (month > _month) {
+      value = month - _month;
+      //console.log("first month break");
+    } else if (month === _month) {
+      value = month - _month;
+      //console.log("second month break");
+    } else if (_month > month) {
+      value = _month - month;
+      //console.log("last month break");
+    }
+
+    return value;
+  }
+
+  function yearCalculation() {
+    let value = 0;
+    const _year = now.getFullYear(),
+      year = parseInt(data.year.trim());
+
+    // console.log(`System year: ${_year} \n Input year: ${year}`);
+
+    if (_year === year) value = _year - year;
+
+    if (year < _year) value = _year - year;
+
+    return value;
+  }
+
   // Function to validate or calculate when the conditions are met after submission
   function calculateAge(e) {
     e.preventDefault();
-    // TODO: Fix if statement to validate incorrect inputs
+
     inputs.map((x) => {
       checkInput(x.input, x.errLabel, x.message, x.label);
     });
 
     if (checkErrors(form))
       setResult({
-        resultDay:
-          _day > data.day.trim()
-            ? _day - data.day.trim()
-            : data.day.trim() - _day,
-        resultMonth:
-          _month > data.month.trim()
-            ? _month - data.month.trim()
-            : data.month.trim() - _month,
-        resultYear:
-          _year === data.year.trim()
-            ? _year - data.year.trim()
-            : _year - data.year.trim(),
+        resultDay: dayCalculation(),
+        resultMonth: monthCalculation(),
+        resultYear: yearCalculation(),
       });
   }
 
