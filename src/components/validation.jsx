@@ -8,45 +8,55 @@ function checkInput(input, errLabel, message, label) {
   if (input.current.name === inputNames[0]) {
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
-
-    if (input.current.value.trim() > new Date().getFullYear()) {
+    else if (input.current.value.trim() > new Date().getFullYear()) {
       setErrorBorder(
         input.current,
         errLabel.current,
         "Must be in the past",
         label.current,
       );
-    }
+    } else if (input.current.value.trim() <= 0) {
+      setErrorBorder(
+        input.current,
+        errLabel.current,
+        "Must be a valid year",
+        label.current,
+      );
+    } else return;
   }
 
   // Check if the name of the input is equal to "month"
   if (input.current.name === inputNames[1]) {
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
-
-    if (input.current.value.trim() > 12 || input.current.value.trim() <= 0) {
+    else if (
+      input.current.value.trim() > 12 ||
+      input.current.value.trim() <= 0
+    ) {
       setErrorBorder(
         input.current,
         errLabel.current,
         "Must be a valid month",
         label.current,
       );
-    }
+    } else return;
   }
 
   // Check if the name of the input is equal to "day"
   if (input.current.name === inputNames[2]) {
     if (input.current.value.trim() === "")
       setErrorBorder(input.current, errLabel.current, message, label.current);
-
-    if (input.current.value.trim() > 31 || input.current.value.trim() <= 0) {
+    else if (
+      input.current.value.trim() > 31 ||
+      input.current.value.trim() <= 0
+    ) {
       setErrorBorder(
         input.current,
         errLabel.current,
         "Must be a valid date",
         label.current,
       );
-    }
+    } else return;
   }
 }
 

@@ -75,7 +75,7 @@ function CalculatorCard() {
     } else if (day > _day) {
       value = day - _day;
       //console.log("third day break");
-    } else value = 0;
+    } else return;
 
     return value;
   }
@@ -96,7 +96,7 @@ function CalculatorCard() {
     } else if (_month > month) {
       value = _month - month;
       //console.log("last month break");
-    }
+    } else return;
 
     return value;
   }
@@ -109,8 +109,8 @@ function CalculatorCard() {
     // console.log(`System year: ${_year} \n Input year: ${year}`);
 
     if (_year === year) value = _year - year;
-
-    if (year < _year) value = _year - year;
+    else if (year < _year) value = _year - year;
+    else return;
 
     return value;
   }
