@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Desktop screenshots:
 
-[Desktop screenshot 1](./public/images/screenshots/desktop-view-non-active-state.png)
+![Desktop screenshot 1](./public/images/screenshots/desktop-view-non-active-state.png)
 
 [Desktop screenshot 2](./public/images/screenshots/desktop-view-empty-input-validation-state.png)
 
